@@ -16,7 +16,6 @@ const all = {
 	tz,
 	root: rootPath,
 	port: 9000,
-	secretKeyJWT: '4A8d6_=z<z5Benxy',
 	logger: {
 		level: 'debug'
 	}
