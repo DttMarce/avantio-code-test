@@ -17,7 +17,7 @@ exports.getWebScrapping = async function (req, res) {
 			$('.story_card').each(function(i, elem) {
 				elPaisNewsList[i] = {
 					title: $(this).find('h2').text().trim(),
-					url: $(this).find('h2 a').attr('href'),
+					url: `https://elpais.com${$(this).find('h2 a').attr('href')}`,
 					author: $(this).find('.author').text().trim()
 				};
 			});
