@@ -1,9 +1,13 @@
 const New = require('../../models/new');
 
-const { getWebScrapping } = require('../../services/new.service')
+const { getWebScrappingElPais, getWebScrappingElMundo } = require('../../services/new.service')
 
-exports.getNews = async function (req, res) {
+exports.getNewsElPais = async function (req, res) {
+	const response = await getWebScrappingElPais();
+	res.status(200).send({response});
+};
 
-	const response = await getWebScrapping();
+exports.getNewsElMundo = async function (req, res) {
+	const response = await getWebScrappingElMundo();
 	res.status(200).send({response});
 };
