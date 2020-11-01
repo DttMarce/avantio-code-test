@@ -1,9 +1,9 @@
 const { Router } = require('express');
 
+routerNews = require('./news');
+
 const router = new Router();
 
-router.get('/', function(req, res) {
-  res.status(200).send({message: 'hello world'});
-});
+router.use('/', routerNews);
 
 module.exports = router;
