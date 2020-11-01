@@ -7,7 +7,13 @@ const router = new Router();
 router.get(
 	'/el-pais/',
 	newValidation,
-	newController.getNews
+	newController.getNewsElPais
+);
+
+router.get(
+	'/el-mundo/',
+	newValidation,
+	newController.getNewsElMundo
 );
 
 module.exports = router;
