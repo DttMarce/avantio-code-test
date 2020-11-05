@@ -7,9 +7,25 @@
     max-width: 1024px;
   }
 
-  .new-box {
+  .new-box a {
+    background-color: #fff;
+    box-shadow: 0 2px 20px 0 rgba(0,0,0,.06);
     display: flex;
-    padding: 10px;
+    margin-top: 10px;
+    min-height: 110px;
+    padding: 14px;
+    text-decoration: none;
+
+    &:hover {
+      box-shadow: 0 2px 20px 0 rgba(0,0,0,.15);
+      -webkit-transition: box-shadow .1s linear;
+      transition: box-shadow .1s linear;
+    }
+
+    .img {
+      align-items: center;
+      display: flex;
+    }
 
     img {
       height: auto;
@@ -20,7 +36,11 @@
       margin: 0;
     }
 
-    a {
+    .img ~ .content-wrapper {
+      padding-left: 20px;
+    }
+
+    .content {
       display: flex;
       flex-direction: column;
       height: 100%;
@@ -28,7 +48,6 @@
 
       h2, span{
         color: #000;
-        text-decoration: none;
       }
     }
   }

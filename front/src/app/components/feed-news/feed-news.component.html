@@ -1,15 +1,17 @@
 <div class="news-wrapper">
   <div class="news-container">
     <div class="new-box" *ngFor="let new of newsToShow">
-      <div class="img" *ngIf="new.img">
-        <img src="{{new.img}}" alt="">
-      </div>
-      <div class="content">
-        <a href="">
-          <h2>{{new.title}}</h2>
-          <span>{{new.author}}</span>
-        </a>
-      </div>
+      <a href="">
+        <div class="img">
+          <img [src]="new.img ? new.img : '../../../assets/img/elpais-logo.svg'" alt="">
+        </div>
+        <div class="content-wrapper">
+          <div class="content">
+            <h2>{{new.title}}</h2>
+            <span *ngIf="new.author">{{new.author}}</span>
+          </div>
+        </div>
+      </a>
     </div>
   </div>
 </div>
