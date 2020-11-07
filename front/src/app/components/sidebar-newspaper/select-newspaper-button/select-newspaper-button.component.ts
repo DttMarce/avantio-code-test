@@ -11,13 +11,9 @@ export class SelectNewspaperButtonComponent implements OnInit {
 
   constructor(private newService: NewService) { }
 
-  ngOnInit(): void {
-    console.log(this.newsPaper);
-  }
+  ngOnInit(): void {}
 
   selectNewspaper(newspaperSelected: string): void {
-    console.log(newspaperSelected);
-
     this.newService.selectNewsPaper(newspaperSelected);
   }
 }

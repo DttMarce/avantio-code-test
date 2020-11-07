@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 import { NewI } from '../../interfaces/new.interface';
-import { Observable } from 'rxjs';
+import { Subject } from 'rxjs';
 import { ENewspaper } from 'src/app/enum/newspaper.enum';
 
 @Injectable({
@@ -10,24 +10,43 @@ import { ENewspaper } from 'src/app/enum/newspaper.enum';
 })
 
 export class NewService {
-  private newsPaperSelected: string;
   public newsPaperToSelect: string[] = [
     ENewspaper.ELMUNDO,
     ENewspaper.ELPAIS
   ];
+  public newspaperSelected: string;
+  public newspaperSelectedSubj: Subject<any>;
+
+  public newsList: any[];
+  public newsListSubject: Subject<any>;
 
   constructor(private http: HttpClient) {
-    this.newsPaperSelected = ENewspaper.ELPAIS;
+    this.newspaperSelected = ENewspaper.ELPAIS;
+    this.newsListSubject = new Subject<any>();
+    this.newspaperSelectedSubj = new Subject<any>();
+    this.getNewsFromApi();
   }
 
-  public getNews(): Observable<any> {
-    return this.http
-    .get<NewI[]>(`http://localhost:9000/v1/${this.newsPaperSelected}/`);
+  public getNewsFromApi(): void {
+    this.http
+    .get<NewI[]>(`http://localhost:9000/v1/${this.newspaperSelected}/`)
+    .subscribe((data) => {
+      this.newsList = data;
+      this.newsOnChangeObservable();
+      this.newspaperOnChangeObservable();
+    });
   }
 
   public selectNewsPaper(selectedNewsPaper): void {
-    console.log("hi");
-    this.newsPaperSelected = selectedNewsPaper;
-    this.getNews();
+    this.newspaperSelected = selectedNewsPaper;
+    this.getNewsFromApi();
+  }
+
+  public newsOnChangeObservable(): any{
+    return this.newsListSubject.next(this.newsList);
+  }
+
+  public newspaperOnChangeObservable(): any{
+    return this.newspaperSelectedSubj.next(this.newspaperSelected);
   }
 }
