@@ -2,14 +2,17 @@
     {
         "title": "BIDEN DERROTA A TRUMP",
         "url": "https://elpais.com/internacional/elecciones-usa/2020-11-07/biden-derrota-a-trump-en-las-elecciones.html",
-        "author": "Amanda Mars",
-        "img": "https://imagenes.elpais.com/resizer/Z14mDE74M_cV-yk7zbF1LC6aZb4=/62x34/cloudfront-eu-central-1.images.arcpublishing.com/prisa/RCF6KCARPNHDNGCYKN2NROIAIY.jpg"
+        "author": "Amanda Mars"
     },
     {
-        "title": "Trump no acepta la victoria del candidato demócrata e insiste en que irá a los tribunales",
+        "title": "Celebraciones demócratas en Estados Unidos tras la victoria de Biden",
         "url": "https://elpais.com/internacional/elecciones-usa/2020-11-07/elecciones-presidenciales-en-estados-unidos-resultados-y-reacciones-en-directo.html",
-        "author": "",
-        "img": "https://imagenes.elpais.com/resizer/XcOkEOdEt2V-56j_9bxt6lV0UYI=/62x34/cloudfront-eu-central-1.images.arcpublishing.com/prisa/S2A3H3WMTFCTRII4J2BCAVMI7M.jpg"
+        "author": ""
+    },
+    {
+        "title": "El presidente se niega a reconocer la derrota inmediatamente después del anuncio",
+        "url": "https://elpais.com/internacional/elecciones-usa/2020-11-07/donald-trump-se-niega-a-reconocer-la-derrota-ante-biden.html",
+        "author": "Pablo Ximénez de Sandoval"
     },
     {
         "title": "El traspaso de poder en EE UU, un largo camino hasta el 20 de enero",
@@ -17,7 +20,7 @@
         "author": "Yolanda Monge"
     },
     {
-        "title": "Objetivo: controlar la pandemia y recuperar la economía",
+        "title": "Objetivo 2021: controlar la pandemia y recuperar la economía",
         "url": "https://elpais.com/internacional/elecciones-usa/2020-11-07/una-agenda-progresista-en-la-casa-blanca.html",
         "author": "Pablo Guimón"
     },
@@ -27,29 +30,35 @@
         "author": "Amanda Mars"
     },
     {
+        "title": "Kamala Harris hace historia: primera mujer vicepresidenta de EE UU",
+        "url": "https://elpais.com/internacional/elecciones-usa/2020-11-07/kamala-harris-la-voz-de-la-vicepresidencia-de-estados-unidos.html",
+        "author": "Yolanda Monge"
+    },
+    {
         "title": "Trump, el perdedor que odiaba a los perdedores",
         "url": "https://elpais.com/internacional/elecciones-usa/2020-11-07/donald-trump-el-perdedor-que-odiaba-a-los-perdedores.html",
         "author": "Amanda Mars"
     },
     {
-        "title": "El sueño demócrata de Georgia se encamina hacia el recuento de votos",
-        "url": "https://elpais.com/internacional/elecciones-usa/2020-11-07/el-sueno-democrata-de-georgia-se-encamina-hacia-el-recuento-de-votos.html",
-        "author": "David Marcial Pérez"
-    },
-    {
         "title": "Por qué un resultado tan igualado. Un país partido en dos",
         "url": "https://elpais.com/politica/2020/11/06/actualidad/1604676210_601759.html",
-        "author": "Kiko Llaneras"
+        "author": "Kiko Llaneras",
+        "img": "https://imagenes.elpais.com/resizer/rxNi93bOp9Ey4s8PWKt6o3Qhrzs=/62x46/cloudfront-eu-central-1.images.arcpublishing.com/prisa/6JVIRD7GUSO2G3EAFHG7EFICSY.jpg"
     },
     {
-        "title": "Trump, Quijote y la extraña racionalidad del EE UU blanco",
-        "url": "https://elpais.com/opinion/2020-11-06/trump-quijote-y-la-extrana-racionalidad-del-estados-unidos-blanco.html",
+        "title": "Las mujeres han hablado, Biden ha ganado",
+        "url": "https://elpais.com/opinion/2020-11-07/las-mujeres-han-hablado-biden-ha-ganado.html",
         "author": ""
     },
     {
-        "title": "¿Se está convirtiendo EE UU en un Estado fallido?",
-        "url": "https://elpais.com/economia/2020-11-06/se-esta-convirtiendo-ee-uu-en-un-estado-fallido.html",
-        "author": "Paul Krugman"
+        "title": "La elección eterna de Joe Biden",
+        "url": "https://elpais.com/internacional/elecciones-usa/2020-11-07/la-eleccion-eterna-de-joe-biden.html",
+        "author": "Jorge Galindo"
+    },
+    {
+        "title": "La victoria de la decencia",
+        "url": "https://elpais.com/opinion/2020-11-07/la-victoria-de-la-decencia.html",
+        "author": "Yascha Mounk"
     },
     {
         "title": "La Fiscalía investiga sociedades en paraísos fiscales vinculadas al rey emérito",
@@ -72,9 +81,9 @@
         "author": "Iván Romero Díaz"
     },
     {
-        "title": "El Barça se reencuentra con el triunfo ante el Betis (5-2)",
-        "url": "https://elpais.com/deportes/2020-11-07/barcelona-betis-en-directo-sigue-laliga-santander-en-vivo.html",
-        "author": "Juan I. Irigoyen"
+        "title": "Messi calma al Barça",
+        "url": "https://elpais.com/deportes/2020-11-07/messi-calma-al-barca.html",
+        "author": "Ramon Besa"
     },
     {
         "title": "El caso del misterioso caminante que ni Internet ha logrado descifrar",
@@ -152,9 +161,9 @@
         "author": ""
     },
     {
-        "title": "Trump, Quijote y la extraña racionalidad del Estados Unidos blanco",
-        "url": "https://elpais.com/opinion/2020-11-06/trump-quijote-y-la-extrana-racionalidad-del-estados-unidos-blanco.html",
-        "author": ""
+        "title": "Sobre las ruinas de la clase media, el resurgir de la gente corriente",
+        "url": "https://elpais.com/opinion/2020-11-06/sobre-las-ruinas-de-la-clase-media.html",
+        "author": "Christophe Guilluy"
     },
     {
         "title": "Pedro Páramo",
@@ -227,7 +236,7 @@
         "author": "Nadia Tronchoni"
     },
     {
-        "title": "El año insoportable de Maverick Viñales: de aspirar al título a casi despedirse de él",
+        "title": "Viñales: “Este año es una pesadilla”",
         "url": "https://elpais.com/deportes/2020-11-07/el-ano-insoportable-de-maverick-vinales.html",
         "author": "Nadia Tronchoni"
     },
@@ -237,14 +246,14 @@
         "author": "Jorge Valdano"
     },
     {
-        "title": "Carreño sufre el ‘síndrome Nadal’",
-        "url": "https://elpais.com/deportes/2020-11-06/carreno-sufre-el-sindrome-nadal.html",
-        "author": "Alejandro Ciriza"
-    },
-    {
         "title": "El médico de Maradona: “Su cuadro de abstinencia se debe a los consumos que tuvo en su vida\"",
         "url": "https://elpais.com/deportes/2020-11-07/el-medico-de-maradona-su-cuadro-de-abstinencia-se-debe-a-los-consumos-que-tuvo-durante-toda-su-vida.html",
         "author": ""
+    },
+    {
+        "title": "LaLiga deniega la petición del Granada para aplazar el partido ante la Real por los casos de coronavirus",
+        "url": "https://elpais.com/deportes/2020-11-07/laliga-deniega-la-peticion-del-granada-para-aplazar-el-partido-ante-la-real-sociedad.html",
+        "author": "Rafael Pineda"
     },
     {
         "title": "Pacto secreto por Haaland",
@@ -287,9 +296,9 @@
         "author": "María Martín"
     },
     {
-        "title": "Fórmulas para no alimentar a la bestia: la batalla europea contra las ‘fake news’",
-        "url": "https://elpais.com/espana/2020-11-06/formulas-para-no-alimentar-a-la-bestia-la-batalla-europea-contra-las-fake-news.html",
-        "author": ""
+        "title": "Felipe VI y Pablo Iglesias viajan juntos a la toma de posesión del presidente boliviano",
+        "url": "https://elpais.com/espana/2020-11-07/felipe-vi-y-pablo-iglesias-viajan-juntos-a-la-toma-de-posesion-del-presidente-boliviano.html",
+        "author": "Miguel González"
     },
     {
         "title": "Tezanos atribuye los fallos en las encuestas a un electorado “cada vez menos predecible”",
@@ -312,7 +321,7 @@
         "author": "Lluís Pellicer"
     },
     {
-        "title": "Las renovables sonríen con Biden a un paso de la Casa Blanca",
+        "title": "Las renovables sonríen con Biden",
         "url": "https://elpais.com/economia/2020-11-06/las-renovables-sonrien-con-biden-a-un-paso-de-la-casa-blanca.html",
         "author": "Ignacio Fariza"
     },
@@ -327,7 +336,7 @@
         "author": "Gabriele Ferluga"
     },
     {
-        "title": "Las mujeres sufren una doble penalización por el Covid-19",
+        "title": "Las mujeres sufren una doble penalización por la covid-19",
         "url": "https://elpais.com/cincodias/2020/11/06/fortunas/1604685300_623113.html",
         "author": "Ana Muñoz Vita"
     },
