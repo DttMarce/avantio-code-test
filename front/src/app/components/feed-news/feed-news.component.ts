@@ -10,13 +10,13 @@ import { NewService } from 'src/app/services/new/new.service';
 })
 export class FeedNewsComponent implements OnInit {
   public newsToShow: NewI[];
+  public selectedNewspaper: string;
 
-  constructor(private newService: NewService) { }
+  constructor(private newService: NewService) {}
 
   ngOnInit(): void {
-    this.newService.getNews().subscribe(news => {
-      this.newsToShow = news.response;
-      this.newsToShow = this.newsToShow.slice(0, 10);
+    this.newService.newsListSubject.asObservable().subscribe((data) => {
+      this.newsToShow = data.response;
     });
   }
 

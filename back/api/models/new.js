@@ -5,7 +5,7 @@ const newSchema = Schema({
   title: String,
   url: String,
 	author: String,
-	img?: String
+	img: String
 });
 
 module.exports = mongoose. model('New', newSchema);

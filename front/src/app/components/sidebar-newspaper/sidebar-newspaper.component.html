@@ -1,0 +1,22 @@
+<div class="sidebar-wrapper">
+  <div class="top">
+    <div class="img">
+      <img src="../../../assets/img/logo-avantio.png" alt="">
+    </div>
+    <div class="counter-news">
+      <span>Hoy</span>
+      <p>132 Noticias</p>
+    </div>
+
+    <div class="select-newspaper">
+      <app-select-newspaper-button
+        *ngFor="let newspaper of newsPaperToSelect"
+        [newsPaper] = "newspaper">
+      </app-select-newspaper-button>
+    </div>
+  </div>
+
+  <div class="bottom">
+    Copyright © Avantio 2018 Trends
+  </div>
+</div>
