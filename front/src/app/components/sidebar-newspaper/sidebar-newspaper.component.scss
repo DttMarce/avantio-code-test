@@ -1,0 +1,38 @@
+:host {
+  background: #fff;
+  height: 100%;
+  position: fixed;
+}
+
+.sidebar-wrapper {
+  box-shadow: 0 2px 20px 0 rgba(0, 0, 0, 0.15);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: space-between;
+  transition: box-shadow 0.1s linear;
+}
+
+.top {
+  margin: 20px;
+
+  .counter-news {
+    margin-top: 40px;
+
+    span {
+      font-weight: 200;
+      color: rgb(0 0 0 / 40%);
+    }
+
+    p {
+      font-size: 20px;
+      font-weight: 800;
+    }
+  }
+
+  .select-newspaper {
+    display: flex;
+    flex-direction: column;
+    margin-top: 100px;
+  }
+}
