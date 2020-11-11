@@ -21,11 +21,11 @@ exports.getWebScrappingElPais = async function (req, res) {
 			});
 
 			const elPaisNewsListTrimmed = elPaisNewsList.filter(n => n != undefined );
-			fs.writeFile(
-				'elPaisNews.json', JSON.stringify(elPaisNewsListTrimmed, null, 4),
-				(err)=> console.log('File successfully written!'));
+			// fs.writeFile(
+			// 	'elPaisNews.json', JSON.stringify(elPaisNewsListTrimmed, null, 4),
+			// 	(err)=> console.log('File successfully written!'));
 
-			return elPaisNewsList;
+			return elPaisNewsListTrimmed;
 		}
   } catch (error) {
     console.error(error);
@@ -51,11 +51,11 @@ exports.getWebScrappingElMundo = async function (req, res) {
 			});
 
 			const elMundoNewsListTrimmed = elMundoNewsList.filter(n => n != undefined );
-			fs.writeFile(
-				'elMundoNews.json', JSON.stringify(elMundoNewsListTrimmed, null, 4),
-				(err)=> console.log('File successfully written!'));
+			// fs.writeFile(
+			// 	'elMundoNews.json', JSON.stringify(elMundoNewsListTrimmed, null, 4),
+			// 	(err)=> console.log('File successfully written!'));
 
-			return elMundoNewsList;
+			return elMundoNewsListTrimmed;
 		}
   } catch (error) {
     console.error(error);
