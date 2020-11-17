@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
-import { NewI } from '../../interfaces/new.interface';
 import { Subject } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { ENewspaper } from 'src/app/enum/newspaper.enum';

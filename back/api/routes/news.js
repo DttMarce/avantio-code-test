@@ -11,6 +11,12 @@ router.get(
 );
 
 router.get(
+	'/el-pais/:id',
+	newValidation,
+	newController.getSelectedNewElPais
+);
+
+router.get(
 	'/el-mundo/',
 	newValidation,
 	newController.getNewsElMundo

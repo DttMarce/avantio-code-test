@@ -1,3 +1,5 @@
+var ObjectId = require('mongoose').Types.ObjectId;
+
 const logger = require('../../../utils/logger/logger');
 const DailyNews = require('../../models/dailyNews');
 
@@ -38,6 +40,21 @@ exports.getNewsElPais = async function (req, res) {
 		}
 	});
 };
+
+exports.getSelectedNewElPais = async function(req, res) {
+	const {params: {id}} = req;
+
+	await DailyNews.findOne({
+		"news._id": {$eq: new ObjectId(`${id}`)}
+	}, async (err, dayNewsFinded) => {
+		newsToFilter = dayNewsFinded['news'];
+
+		newMapped = await dayNewsFinded.news
+		.find(newToFilter => newToFilter._id == id);
+
+		return res.status(200).send({response: newMapped});
+	})
+}
 
 exports.getNewsElMundo = async function (req, res) {
 	const dateTime = new Date();
