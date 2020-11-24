@@ -1,25 +1,27 @@
 const { Router } = require('express');
 
-const { newController, newValidation } = require('../controllers/new/')
+const { newController, newValidation } = require('../controllers/new/');
+const { getIDNewspaper } = require('../../config/middleware/newspaper-control');
 
 const router = new Router();
 
 router.get(
-	'/el-pais/',
+	'/:newspaper/',
 	newValidation,
+	getIDNewspaper,
 	newController.getNewsElPais
 );
 
 router.get(
-	'/el-pais/:id',
+	'/:newspaper/:id',
 	newValidation,
 	newController.getSelectedNewElPais
 );
 
-router.get(
-	'/el-mundo/',
-	newValidation,
-	newController.getNewsElMundo
-);
+// router.get(
+// 	'/el-mundo/',
+// 	newValidation,
+// 	newController.getNewsElMundo
+// );
 
 module.exports = router;
