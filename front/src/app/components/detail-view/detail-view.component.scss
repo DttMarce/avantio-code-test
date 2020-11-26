@@ -1,0 +1,9 @@
+.new-wrapper {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+
+  .new-container {
+    max-width: 800px;
+  }
+}
