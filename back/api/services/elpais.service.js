@@ -1,5 +1,59 @@
 const axios = require('axios');
 const cheerio = require('cheerio');
+var ObjectId = require('mongoose').Types.ObjectId;
+
+const News = require('../models/news');
+
+exports.getNewsElPais = async function (idNewspaper) {
+	const dateTime = new Date();
+	const currentDay = dateTime.getDate();
+	const currentMonth = dateTime.getMonth() + 1;
+	const currentYear = dateTime.getFullYear();
+	const currentDate = `${currentYear}-${currentMonth}-${currentDay}`;
+
+	return await News.find({
+		date: {$gte: currentDate},
+		newspaper:{$eq: new ObjectId(`${idNewspaper}`)}
+	}, async (err, newsFinded) => {
+		if (err) {
+			return res.status(500).send({error: `Internal Server Error: ${err}`});
+		}
+
+		return newsFinded;
+	});
+}
+
+exports.saveNewsElPais = async function (idNewspaper, newsScrapped) {
+	let newsToResponse = [];
+
+	await Promise.all(newsScrapped.map( async newScrapped => {
+		const newToSave = new News();
+
+		newToSave.author = newScrapped.author;
+		newToSave.img = newScrapped.img;
+		newToSave.title = newScrapped.title;
+		newToSave.url = newScrapped.url;
+		newToSave.newspaper = idNewspaper;
+
+		newsToResponse.push(newToSave);
+
+		await newToSave.save((err, newSaved) => {
+			if (err) {
+				return res.status(500).send({response: `Error al guardar en la bbdd: ${err}`});
+			}
+		});
+	}));
+
+	return newsToResponse;
+}
+
+exports.getSelectedNewElPais = async function() {
+
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////WEB SCRAPPING////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 exports.getWebScrappingElPais = async function (req, res) {
 	try {

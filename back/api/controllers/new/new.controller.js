@@ -1,65 +1,29 @@
 var ObjectId = require('mongoose').Types.ObjectId;
 
-const { values } = require('lodash');
-const logger = require('../../../utils/logger');
-
 const News = require('../../models/news');
 
-const { getWebScrappingElPais, getWebScrappingSelectedNewElPais } = require('../../services/elpais.service');
+const {
+	getWebScrappingElPais,
+	getWebScrappingSelectedNewElPais,
+	getNewsElPais,
+	saveNewsElPais
+} = require('../../services/elpais.service');
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 exports.getNewsElPais = async function (req, res) {
 	const {idNewspaper} = req;
 
-	const dateTime = new Date();
-	const currentDay = dateTime.getDate();
-	const currentMonth = dateTime.getMonth() + 1;
-	const currentYear = dateTime.getFullYear();
-	const currentDate = `${currentYear}-${currentMonth}-${currentDay}`;
-
-	const newsElPais = await News.find({
-		date: {$gte: currentDate},
-		newspaper:{$eq: new ObjectId(`${idNewspaper}`)}
-	}, async (err, newsFinded) => {
-		if (err) {
-			return res.status(500).send({error: `Internal Server Error: ${err}`});
-		}
-
-		return newsFinded;
-	});
+	const newsElPais = await getNewsElPais(idNewspaper);
 
 	if(newsElPais.length === 0) {
 		const newsScrapped = await getWebScrappingElPais();
-		let newsToResponse = [];
-
-		await Promise.all(newsScrapped.map( async newScrapped => {
-			const newToSave = new News();
-
-			newToSave.author = newScrapped.author;
-			newToSave.img = newScrapped.img;
-			newToSave.title = newScrapped.title;
-			newToSave.url = newScrapped.url;
-			newToSave.newspaper = idNewspaper;
-
-			newsToResponse.push(newToSave);
-
-			await newToSave.save((err, newSaved) => {
-				if (err) {
-					return res.status(500).send({response: `Error al guardar en la bbdd: ${err}`});
-				}
-			});
-		}));
+		const newsToResponse = await saveNewsElPais(idNewspaper, newsScrapped)
 
 		return res.status(200).send({response: newsToResponse});
 	}
 
 	return res.status(200).send({response: newsElPais});
 };
-
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 exports.getSelectedNewElPais = async function(req, res) {
 	const {params: {id}} = req;
