@@ -6,7 +6,7 @@ import { FeedNewsComponent } from './components/feed-news/feed-news.component';
 
 const routes: Routes = [
   { path: '', component: FeedNewsComponent },
-  { path: 'detail-new/:id', component: DetailViewComponent },
+  { path: ':newspaper/:id', component: DetailViewComponent }
 ];
 
 @NgModule({

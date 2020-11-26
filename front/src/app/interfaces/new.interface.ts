@@ -1,8 +1,10 @@
 export interface NewI {
-  title: string;
-  url: string;
   author: string;
-  text?: string;
+  body?: string;
   img?: string;
+  url: string;
+  title: string;
   updatedAt: Date;
+  date: Date;
+  newspaper: string;
 }

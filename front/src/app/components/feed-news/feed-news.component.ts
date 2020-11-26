@@ -10,7 +10,8 @@ import { NewService } from 'src/app/services/new/new.service';
 })
 export class FeedNewsComponent implements OnInit {
   public newsToShow: NewI[];
-  public pathSelectedNewspaper: string;
+  public newspaperSelected: string;
+  public pathImageSelectedNewspaper: string;
 
   constructor(private newService: NewService) {}
 
@@ -19,8 +20,9 @@ export class FeedNewsComponent implements OnInit {
       this.newsToShow = data;
     });
 
-    this.newService.newspaperSelectedSubj.asObservable().subscribe((newsPaperSelected) => {
-      this.pathSelectedNewspaper = `../../../assets/img/${newsPaperSelected}-logo.png`;
+    this.newService.newspaperSelectedSubj.asObservable().subscribe((newspaperSelected) => {
+      this.newspaperSelected = newspaperSelected;
+      this.pathImageSelectedNewspaper = `../../../assets/img/${newspaperSelected}-logo.png`;
     });
   }
 

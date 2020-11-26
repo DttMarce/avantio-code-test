@@ -1,9 +1,9 @@
 <div class="news-wrapper">
   <div class="news-container">
     <div class="new-box" *ngFor="let new of newsToShow">
-      <a href="">
+      <a [routerLink]="[newspaperSelected, new._id]">
         <div class="img">
-          <img [src]="new.img ? new.img : pathSelectedNewspaper" alt="">
+          <img [src]="new.img ? new.img : pathImageSelectedNewspaper" alt="">
         </div>
         <div class="content-wrapper">
           <div class="content">
