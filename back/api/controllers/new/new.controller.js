@@ -1,17 +1,17 @@
 var ObjectId = require('mongoose').Types.ObjectId;
 
-const News = require('../../models/news');
-
 const {
 	getWebScrappingElPais,
 	getWebScrappingSelectedNewElPais,
 	getNewsElPais,
-	saveNewsElPais
+	saveNewsElPais,
+	getSelectedNewElPais,
+	updateNewElPais
 } = require('../../services/elpais.service');
 
 
 exports.getNewsElPais = async function (req, res) {
-	const {idNewspaper} = req;
+	const { idNewspaper } = req;
 
 	const newsElPais = await getNewsElPais(idNewspaper);
 
@@ -28,34 +28,23 @@ exports.getNewsElPais = async function (req, res) {
 exports.getSelectedNewElPais = async function(req, res) {
 	const {params: {id}} = req;
 
-	await News.findById(id, async (err, dayNewsFinded) => {
-		const {title, body, url} = dayNewsFinded;
-		const textIsEmpty = (title && body) ? false : true;
+	const newFinded = await getSelectedNewElPais(id);
+	const {title, body, url} = newFinded;
+	const textIsEmpty = (title && body) ? false : true;
 
-		if(textIsEmpty) {
-			const {title, body} = await getWebScrappingSelectedNewElPais(url);
+	if(textIsEmpty) {
+		const {title, body} = await getWebScrappingSelectedNewElPais(url);
+		await updateNewElPais(id, title, body);
 
-			News.update({
-				_id: {$eq: new ObjectId(`${id}`)}
-			},{
-				$set: {
-					'title': title,
-					'body': body
-				}
-			}, (err, count) => {
-				console.log(count);
-			});
-
-			const newMappedUpdated = {
-				...dayNewsFinded.toObject(),
-				body: body
-			}
-
-			return res.status(200).send({response: newMappedUpdated});
+		const newMappedUpdated = {
+			...newFinded.toObject(),
+			body: body
 		}
 
-		return res.status(200).send({response: dayNewsFinded});
-	})
+		return res.status(200).send({response: newMappedUpdated});
+	}
+
+	return res.status(200).send({response: newFinded});
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

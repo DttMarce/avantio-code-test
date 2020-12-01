@@ -47,8 +47,32 @@ exports.saveNewsElPais = async function (idNewspaper, newsScrapped) {
 	return newsToResponse;
 }
 
-exports.getSelectedNewElPais = async function() {
+exports.getSelectedNewElPais = async function(id) {
+	const findNew = await News.findById(id, async (err, selectedNew) => {
+		if (err || !selectedNew) {
+			return false;
+		}
 
+		return selectedNew;
+	});
+
+	return findNew;
+}
+
+exports.updateNewElPais = async function(id, title, body) {
+	News.update({
+		_id: {$eq: new ObjectId(`${id}`)}
+	},{
+		$set: {
+			'title': title,
+			'body': body
+		}
+	}, (err, count) => {
+		if(err) {
+			console.error(error);
+		}
+		console.log(count);
+	});
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
