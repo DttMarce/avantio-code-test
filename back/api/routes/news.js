@@ -9,19 +9,13 @@ router.get(
 	'/:newspaper/',
 	newValidation,
 	getIDNewspaper,
-	newController.getNewsElPais
+	newController.getNews
 );
 
 router.get(
 	'/:newspaper/:id',
 	newValidation,
-	newController.getSelectedNewElPais
+	newController.getSelectedNew
 );
-
-// router.get(
-// 	'/el-mundo/',
-// 	newValidation,
-// 	newController.getNewsElMundo
-// );
 
 module.exports = router;
