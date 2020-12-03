@@ -26,7 +26,7 @@ exports.getNewspaper = async function(name) {
 saveNewspaper = async function(name) {
 	const newspaper = new Newspaper();
 
-	newspaper.name = 'el-pais';
+	newspaper.name = name;
 	newspaper.img = `/assets/img/${name}.png`;
 
 	try {
