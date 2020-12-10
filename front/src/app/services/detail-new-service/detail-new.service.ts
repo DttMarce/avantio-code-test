@@ -10,21 +10,16 @@ import { NewI } from '../../interfaces/new.interface';
   providedIn: 'root'
 })
 export class DetailNewService {
-  private id: string;
-
   public newSelectedData: NewI;
   public newSelectedDataSubject: Subject<any>;
 
   constructor(private http: HttpClient, private route: Router) {
     this.newSelectedDataSubject = new Subject<any>();
-    this.getNewFromApi();
   }
 
-  private getNewFromApi(): void {
-    const splitUrl = this.route.url.split('/').filter(n => n !== '');
-
+  public getNewFromApi(newId: string, newspaper: string): void {
     this.http
-    .get<any>(`http://localhost:9000/v1/${splitUrl[0]}/${splitUrl[1]}`)
+    .get<any>(`http://localhost:9000/v1/${newspaper}/${newId}/`)
     .pipe(map(newSelected => {
       return newSelected.response;
     }))
