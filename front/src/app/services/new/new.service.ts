@@ -16,8 +16,8 @@ export class NewService {
   ];
   public newspaperSelected: string;
   public newspaperSelectedSubj: Subject<any>;
-
   public newsList: any[];
+
   public newsListSubject: Subject<any>;
   public newsListCountSubject: Subject<any>;
 

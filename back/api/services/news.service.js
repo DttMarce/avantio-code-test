@@ -8,12 +8,14 @@ const { getWebScrappingElMundo, getWebScrappingSelectedNewElMundo } = require('.
 exports.getWebScrapping = async function (nameNewspaper) {
 	let webSelected;
 
-	if(nameNewspaper == 'el-pais') {
-		webSelected = await getWebScrappingElPais();
-	}
+	switch (nameNewspaper) {
+		case 'el-pais':
+			webSelected = await getWebScrappingElPais();
+			break;
 
-	if(nameNewspaper == 'el-mundo') {
-		webSelected = await getWebScrappingElMundo();
+		case 'el-mundo':
+			webSelected = await getWebScrappingElMundo();
+			break;
 	}
 
 	return webSelected;
@@ -22,12 +24,14 @@ exports.getWebScrapping = async function (nameNewspaper) {
 exports.getSelectedNewScrapping = async function (nameNewspaper, url) {
 	let newSelected;
 
-	if(nameNewspaper == 'el-pais') {
-		newSelected = await getWebScrappingSelectedNewElPais(url);
-	}
+	switch (nameNewspaper) {
+		case 'el-pais':
+			newSelected = await getWebScrappingSelectedNewElPais(url);
+			break;
 
-	if(nameNewspaper == 'el-mundo') {
-		newSelected = await getWebScrappingSelectedNewElMundo(url);
+		case 'el-mundo':
+			newSelected = await getWebScrappingSelectedNewElMundo(url);
+			break;
 	}
 
 	return newSelected;

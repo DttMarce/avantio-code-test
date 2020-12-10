@@ -13,7 +13,11 @@ export class FeedNewsComponent implements OnInit {
   public newspaperSelected: string;
   public pathImageSelectedNewspaper: string;
 
-  constructor(private newService: NewService) {}
+  constructor(private newService: NewService) {
+    this.newsToShow = this.newService.newsList;
+    this.newspaperSelected = this.newService.newspaperSelected;
+    this.pathImageSelectedNewspaper = `../../../assets/img/${this.newspaperSelected}-logo.png`;
+  }
 
   ngOnInit(): void {
     this.newService.newsListSubject.asObservable().subscribe((data) => {
