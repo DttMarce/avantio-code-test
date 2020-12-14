@@ -24,6 +24,7 @@ export class DetailViewComponent implements OnInit {
     this.detailNewService.getNewFromApi(this.newId, this.newspaper);
 
     this.detailNewService.newSelectedDataSubject.asObservable().subscribe((data) => {
+      console.log(data);
       this.newToShow = data;
     });
   }
