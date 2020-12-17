@@ -1,0 +1,21 @@
+:host {
+  position: absolute;
+  top: 50%;
+  right: 40px;
+}
+
+button {
+  background: #ff8800;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  height: 50px;
+  outline: none;
+  overflow: hidden;
+  width: 50px;
+
+  i {
+    color: #fff;
+    font-size: 21px;
+  }
+}

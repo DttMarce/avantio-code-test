@@ -9,6 +9,7 @@ import { FeedNewsComponent } from './components/feed-news/feed-news.component';
 import { SidebarNewspaperComponent } from './components/sidebar-newspaper/sidebar-newspaper.component';
 import { SelectNewspaperButtonComponent } from './components/sidebar-newspaper/select-newspaper-button/select-newspaper-button.component';
 import { DetailViewComponent } from './components/detail-view/detail-view.component';
+import { ButtonCircleComponent } from './components/shared/button-circle/button-circle.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { DetailViewComponent } from './components/detail-view/detail-view.compon
     FeedNewsComponent,
     SidebarNewspaperComponent,
     SelectNewspaperButtonComponent,
-    DetailViewComponent
+    DetailViewComponent,
+    ButtonCircleComponent
   ],
   imports: [
     BrowserModule,

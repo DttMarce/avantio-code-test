@@ -17,7 +17,7 @@ export class DetailViewComponent implements OnInit {
     this.route.params.subscribe(route => {
       this.newId = route.id;
       this.newspaper = route.newspaper;
-    })
+    });
   }
 
   ngOnInit(): void {
