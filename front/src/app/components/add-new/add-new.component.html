@@ -1,0 +1,7 @@
+<app-button-circle
+  (buttonClicked) = "showSidebarComponent()"
+></app-button-circle>
+<app-sidebar-slide-out
+  *ngIf = "showAddNewSidebar"
+  (overlayClicked) = "showSidebarComponent()"
+></app-sidebar-slide-out>
