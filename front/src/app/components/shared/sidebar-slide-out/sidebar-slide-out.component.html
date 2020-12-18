@@ -1,17 +1,22 @@
 <div class="sidebar-wrapper">
-  <div class="head">
-    <div>
-      Nueva noticia
+  <div class="sidebar-container">
+    <div class="head">
+      <div>
+        Nueva noticia
+      </div>
+      <div>
+        <app-secondary-button
+          (buttonClicked)="onOverlayClick()"
+        ></app-secondary-button>
+        <app-principal-button
+        ></app-principal-button>
+      </div>
     </div>
-    <div>
-      <app-secondary-button></app-secondary-button>
-      <app-principal-button></app-principal-button>
+    <div class="form">
+      <p>Esto es un formulario</p>
     </div>
-  </div>
-  <div class="form">
-    <p>Esto es un formulario</p>
   </div>
 </div>
 <div class="overlay"
-(click)="onOverlayClick()"
+  (click)="onOverlayClick()"
 ></div>
