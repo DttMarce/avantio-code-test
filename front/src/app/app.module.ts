@@ -13,6 +13,7 @@ import { SidebarSlideOutComponent } from './components/shared/sidebar-slide-out/
 import { AddNewComponent } from './components/add-new/add-new.component';
 import { PrincipalButtonComponent } from './components/shared/buttons/principal-button/principal-button.component';
 import { SecondaryButtonComponent } from './components/shared/buttons/secondary-button/secondary-button.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { SecondaryButtonComponent } from './components/shared/buttons/secondary-
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -4,7 +4,7 @@ export interface NewI {
   img?: string;
   url: string;
   title: string;
-  updatedAt: Date;
-  date: Date;
+  updatedAt?: Date;
+  date?: Date;
   newspaper: string;
 }

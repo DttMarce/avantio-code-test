@@ -3,5 +3,6 @@
 ></app-button-circle>
 <app-sidebar-slide-out
   *ngIf = "showAddNewSidebar"
+  [actionType] = "'add-new'"
   (overlayClicked) = "showSidebarComponent()"
 ></app-sidebar-slide-out>

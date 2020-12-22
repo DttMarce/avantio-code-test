@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
-import { Subject } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { ENewspaper } from 'src/app/enum/newspaper.enum';
+import { NewI } from 'src/app/interfaces/new.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -41,6 +42,12 @@ export class NewService {
       this.newspaperOnChangeObservable();
       this.newsCountOnChangeObservable();
     });
+  }
+
+  public insertNewToNewspaper(newspaperNew: NewI): Observable<any> {
+    console.log(newspaperNew);
+    console.log(this.newspaperSelected);
+    return this.http.post<any>(`http://localhost:9000/v1/${this.newspaperSelected}`, newspaperNew);
   }
 
   public selectNewsPaper(selectedNewsPaper): void {
