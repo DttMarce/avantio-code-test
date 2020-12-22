@@ -44,3 +44,11 @@ exports.getSelectedNew = async function(req, res) {
 
 	return res.status(200).send({response: newFinded});
 }
+
+exports.insertNew = async function(req, res) {
+	// const {params: {id, newspaper}} = req;
+	// TODO:
+	// Ya deberia recibir la noticia y el id del periodico, solo hace falta guardar
+
+
+}

@@ -80,6 +80,28 @@ exports.saveNews = async function (idNewspaper, newsScrapped) {
 	return newsToResponse;
 }
 
+exports.saveNew = async function (idNewspaper, newNewspaper) {
+	const newToSave = new News();
+
+	newToSave.author = newNewspaper.author;
+	newToSave.body = newNewspaper.body;
+	newToSave.title = newNewspaper.title;
+	newToSave.url = newNewspaper.url;
+	newToSave.newspaper = idNewspaper;
+
+	await newToSave.save(async (err, newSaved) => {
+		if (err) {
+			if (err.code == 11000) {
+				return res.status(209).send('Email already exists');
+			}
+
+			return res.status(500).send({error: `Internal Server Error: ${err}`});
+		}
+
+		return newSaved;
+	});
+}
+
 exports.getSelectedNew = async function(id) {
 	const findNew = await News.findById(id, async (err, selectedNew) => {
 		if (err || !selectedNew) {
