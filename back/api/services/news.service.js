@@ -89,17 +89,17 @@ exports.saveNew = async function (idNewspaper, newNewspaper) {
 	newToSave.url = newNewspaper.url;
 	newToSave.newspaper = idNewspaper;
 
-	await newToSave.save(async (err, newSaved) => {
+	await newToSave.save((err, newSaved) => {
 		if (err) {
 			if (err.code == 11000) {
-				return res.status(209).send('Email already exists');
+				return res.status(209).send('New already exists');
 			}
 
 			return res.status(500).send({error: `Internal Server Error: ${err}`});
 		}
-
-		return newSaved;
 	});
+
+	return newToSave;
 }
 
 exports.getSelectedNew = async function(id) {

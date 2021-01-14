@@ -1,6 +1,7 @@
 const {
 	getNews,
 	saveNews,
+	saveNew,
 	getSelectedNew,
 	updateNew,
 	getWebScrapping,
@@ -46,9 +47,9 @@ exports.getSelectedNew = async function(req, res) {
 }
 
 exports.insertNew = async function(req, res) {
-	// const {params: {id, newspaper}} = req;
-	// TODO:
-	// Ya deberia recibir la noticia y el id del periodico, solo hace falta guardar
+	const {idNewspaper, body} = req;
 
+	const newToResponse = await saveNew(idNewspaper, body);
 
+	return res.status(200).send({response: newToResponse});
 }

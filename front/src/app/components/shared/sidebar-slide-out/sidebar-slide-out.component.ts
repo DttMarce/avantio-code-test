@@ -28,8 +28,9 @@ export class SidebarSlideOutComponent implements OnInit {
   onSubmit(): void {
     switch (this.actionType) {
       case 'add-new':
-        this.newService.insertNewToNewspaper(this.newForm.form.value);
-
+        this.newService.insertNewToNewspaper(this.newForm.form.value).subscribe((data) => {
+          console.log(data)
+        });
         break;
     }
   }

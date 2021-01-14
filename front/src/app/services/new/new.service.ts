@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 import { Observable, Subject } from 'rxjs';
 import { map } from 'rxjs/operators';
@@ -21,6 +21,13 @@ export class NewService {
 
   public newsListSubject: Subject<any>;
   public newsListCountSubject: Subject<any>;
+
+  private httpOptions = {
+    headers: new HttpHeaders({
+      'Content-Type':  'application/json',
+    })
+  };
+
 
   constructor(private http: HttpClient) {
     this.newspaperSelected = ENewspaper.ELPAIS;
@@ -45,9 +52,7 @@ export class NewService {
   }
 
   public insertNewToNewspaper(newspaperNew: NewI): Observable<any> {
-    console.log(newspaperNew);
-    console.log(this.newspaperSelected);
-    return this.http.post<any>(`http://localhost:9000/v1/${this.newspaperSelected}`, newspaperNew);
+    return this.http.post<any>(`http://localhost:9000/v1/${this.newspaperSelected}`, newspaperNew, this.httpOptions);
   }
 
   public selectNewsPaper(selectedNewsPaper): void {
