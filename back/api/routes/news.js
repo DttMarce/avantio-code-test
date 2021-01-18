@@ -18,4 +18,11 @@ router.get(
 	newController.getSelectedNew
 );
 
+router.post(
+	'/:newspaper/',
+	newValidation,
+	getIDNewspaper,
+	newController.insertNew
+);
+
 module.exports = router;

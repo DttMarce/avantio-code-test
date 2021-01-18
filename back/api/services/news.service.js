@@ -47,7 +47,7 @@ exports.getNews = async function (idNewspaper) {
 	return await News.find({
 		date: {$gte: currentDate},
 		newspaper:{$eq: new ObjectId(`${idNewspaper}`)}
-	}, async (err, newsFinded) => {
+	}, (err, newsFinded) => {
 		if (err) {
 			return res.status(500).send({error: `Internal Server Error: ${err}`});
 		}
@@ -72,12 +72,36 @@ exports.saveNews = async function (idNewspaper, newsScrapped) {
 
 		await newToSave.save((err, newSaved) => {
 			if (err) {
-				return res.status(500).send({response: `Error al guardar en la bbdd: ${err}`});
+				console.log(`Error al guardar en la bbdd: ${err}`)
+				// return res.status(500).send({response: `Error al guardar en la bbdd: ${err}`});
 			}
 		});
 	}));
 
 	return newsToResponse;
+}
+
+exports.saveNew = async function (idNewspaper, newNewspaper) {
+	const newToSave = new News();
+
+	newToSave.author = newNewspaper.author;
+	newToSave.body = newNewspaper.body;
+	newToSave.title = newNewspaper.title;
+	newToSave.url = newNewspaper.url;
+	newToSave.newspaper = idNewspaper;
+	newToSave.customNew = true;
+
+	await newToSave.save((err, newSaved) => {
+		if (err) {
+			if (err.code == 11000) {
+				return res.status(209).send('New already exists');
+			}
+
+			return res.status(500).send({error: `Internal Server Error: ${err}`});
+		}
+	});
+
+	return newToSave;
 }
 
 exports.getSelectedNew = async function(id) {

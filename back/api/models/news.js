@@ -7,7 +7,11 @@ const newSchema = Schema({
 	body: String,
 	img: String,
   url: String,
-  title: String,
+	title: String,
+	customNew: {
+		type: Boolean,
+		default: false
+	},
 	updatedAt: {
 		type: Date,
 		default: Date.now()

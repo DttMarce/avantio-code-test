@@ -1,6 +1,7 @@
 const {
 	getNews,
 	saveNews,
+	saveNew,
 	getSelectedNew,
 	updateNew,
 	getWebScrapping,
@@ -43,4 +44,12 @@ exports.getSelectedNew = async function(req, res) {
 	}
 
 	return res.status(200).send({response: newFinded});
+}
+
+exports.insertNew = async function(req, res) {
+	const {idNewspaper, body} = req;
+
+	const newToResponse = await saveNew(idNewspaper, body);
+
+	return res.status(200).send({response: newToResponse});
 }
