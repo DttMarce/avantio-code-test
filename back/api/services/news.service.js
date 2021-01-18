@@ -47,7 +47,7 @@ exports.getNews = async function (idNewspaper) {
 	return await News.find({
 		date: {$gte: currentDate},
 		newspaper:{$eq: new ObjectId(`${idNewspaper}`)}
-	}, async (err, newsFinded) => {
+	}, (err, newsFinded) => {
 		if (err) {
 			return res.status(500).send({error: `Internal Server Error: ${err}`});
 		}
@@ -72,7 +72,8 @@ exports.saveNews = async function (idNewspaper, newsScrapped) {
 
 		await newToSave.save((err, newSaved) => {
 			if (err) {
-				return res.status(500).send({response: `Error al guardar en la bbdd: ${err}`});
+				console.log(`Error al guardar en la bbdd: ${err}`)
+				// return res.status(500).send({response: `Error al guardar en la bbdd: ${err}`});
 			}
 		});
 	}));
@@ -88,6 +89,7 @@ exports.saveNew = async function (idNewspaper, newNewspaper) {
 	newToSave.title = newNewspaper.title;
 	newToSave.url = newNewspaper.url;
 	newToSave.newspaper = idNewspaper;
+	newToSave.customNew = true;
 
 	await newToSave.save((err, newSaved) => {
 		if (err) {

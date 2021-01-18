@@ -9,7 +9,8 @@ module.exports = celebrate({
 		updatedAt: Joi.date(),
 		date: Joi.date(),
 		newspaper: Joi.string(),
-		author: Joi.string()
+		author: Joi.string(),
+		customNew: Joi.boolean()
 	})
 });
 
