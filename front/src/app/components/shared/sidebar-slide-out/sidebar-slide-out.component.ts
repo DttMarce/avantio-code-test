@@ -8,6 +8,7 @@ import { NewService } from 'src/app/services/new/new.service';
   templateUrl: './sidebar-slide-out.component.html',
   styleUrls: ['./sidebar-slide-out.component.scss']
 })
+
 export class SidebarSlideOutComponent implements OnInit {
   @Output() overlayClicked: EventEmitter<boolean>;
   @ViewChild('newForm') newForm: NgForm;
@@ -28,10 +29,7 @@ export class SidebarSlideOutComponent implements OnInit {
   onSubmit(): void {
     switch (this.actionType) {
       case 'add-new':
-        this.newService.insertNewToNewspaper(this.newForm.form.value).subscribe((data) => {
-          console.log(data)
-        });
-        break;
+        const insertResult = this.newService.insertNewToNewspaper(this.newForm.form.value);
     }
   }
 }

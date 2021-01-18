@@ -51,8 +51,19 @@ export class NewService {
     });
   }
 
-  public insertNewToNewspaper(newspaperNew: NewI): Observable<any> {
-    return this.http.post<any>(`http://localhost:9000/v1/${this.newspaperSelected}`, newspaperNew, this.httpOptions);
+  public insertNewToNewspaper(newspaperNew: NewI): boolean {
+    this.http.post<any>(`http://localhost:9000/v1/${this.newspaperSelected}`, newspaperNew, this.httpOptions).subscribe(
+      result => {
+        this.newsList.push(result.response);
+        this.newsOnChangeObservable();
+        this.newsCountOnChangeObservable();
+      },
+      error => {
+        console.log(error);
+        return false;
+      }
+    );
+    return true;
   }
 
   public selectNewsPaper(selectedNewsPaper): void {
