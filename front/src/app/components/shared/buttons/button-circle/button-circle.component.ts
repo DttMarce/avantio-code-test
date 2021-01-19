@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-button-circle',
@@ -7,6 +7,7 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 })
 export class ButtonCircleComponent implements OnInit {
   @Output() buttonClicked: EventEmitter<boolean>;
+  @Input() icon: string;
 
   constructor() {
     this.buttonClicked = new EventEmitter();

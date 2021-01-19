@@ -17,6 +17,18 @@
           <p>{{newToShow?.body}}</p>
         </div>
       </div>
+      <div class="button-wrapper">
+        <app-button-circle
+          class="button"
+          [icon] = "'icon-trash-empty'"
+          (buttonClicked) = "deleteNew()"
+        ></app-button-circle>
+        <app-button-circle
+          class="button"
+          [icon] = "'icon-pencil'"
+          (buttonClicked) = "deleteNew()"
+        ></app-button-circle>
+      </div>
     </div>
   </div>
 </div>

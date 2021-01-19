@@ -66,6 +66,16 @@ export class NewService {
     return true;
   }
 
+  public removeNew(idNew: string): Observable<any> {
+    return this.http.delete<any>(`http://localhost:9000/v1/${idNew}`, this.httpOptions);
+  }
+  // public removeNew(idNew: string): Observable<any> {
+  //   return this.http.delete<any>(`http://localhost:9000/v1/${idNew}`, this.httpOptions);
+  //   this.newsList.push(result.response);
+  //   this.newsOnChangeObservable();
+  //   this.newsCountOnChangeObservable();
+  // }
+
   public selectNewsPaper(selectedNewsPaper): void {
     this.newspaperSelected = selectedNewsPaper;
     this.getNewsFromApi();

@@ -16,12 +16,29 @@
     .wrapper-new {
       background: #fff;
       border-radius: 18px;
+      height: 100%;
       position: absolute;
       top: 430px;
       width: 90%;
 
       div {
         padding: 0 15px;
+      }
+    }
+  }
+
+  .button-wrapper {
+    width: 100%;
+    position: relative;
+    display: block;
+
+    app-button-circle {
+      position: absolute;
+      top: 20px;
+      right: -65px;
+
+      &.button:nth-child(2) {
+        top: 90px;
       }
     }
   }
