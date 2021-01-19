@@ -131,3 +131,23 @@ exports.updateNew = async function(id, title, body) {
 		console.log(count);
 	});
 }
+
+exports.removeNew = async function(idNew) {
+	News.findById(idNew, (err, findedNew) => {
+    if(err){
+      return res.status(500).send({error: `Internal Server Error: ${err}`});
+		}
+
+    if(!findedNew){
+      return res.status(404).send({error: `Company not exists: ${err}`});
+		}
+
+    findedNew.remove(err => {
+      if(err){
+        res.status(500).send({error: `Internal Server Error: ${err}`});
+      }
+
+			return true;
+    });
+  });
+}
