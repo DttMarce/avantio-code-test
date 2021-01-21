@@ -25,4 +25,9 @@ router.post(
 	newController.insertNew
 );
 
+router.delete(
+	'/:idNew/',
+	newController.removeNew
+);
+
 module.exports = router;

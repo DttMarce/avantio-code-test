@@ -11,7 +11,7 @@ export class AddNewComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    this.showAddNewSidebar = true;
+    this.showAddNewSidebar = false;
   }
 
   showSidebarComponent(): void {

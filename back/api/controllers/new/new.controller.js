@@ -5,7 +5,8 @@ const {
 	getSelectedNew,
 	updateNew,
 	getWebScrapping,
-	getSelectedNewScrapping
+	getSelectedNewScrapping,
+	removeNew
 } = require('../../services/news.service');
 
 
@@ -52,4 +53,11 @@ exports.insertNew = async function(req, res) {
 	const newToResponse = await saveNew(idNewspaper, body);
 
 	return res.status(200).send({response: newToResponse});
+}
+
+exports.removeNew = async function(req, res) {
+
+	const newToResponse = await removeNew(req.params.idNew);
+
+	return res.status(200).send({response: 'hi'});
 }

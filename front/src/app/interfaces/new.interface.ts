@@ -1,4 +1,5 @@
 export interface NewI {
+  _id: string;
   author: string;
   body?: string;
   img?: string;
