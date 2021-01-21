@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 import { NewI } from 'src/app/interfaces/new.interface';
 import { DetailNewService } from 'src/app/services/detail-new-service/detail-new.service';
@@ -18,7 +18,8 @@ export class DetailViewComponent implements OnInit {
   constructor(
     private detailNewService: DetailNewService,
     private route: ActivatedRoute,
-    private newService: NewService
+    private newService: NewService,
+    private router: Router
   ) {
     this.route.params.subscribe(route => {
       this.newId = route.id;
@@ -35,9 +36,9 @@ export class DetailViewComponent implements OnInit {
   }
 
   deleteNew(): void {
-    this.newService.removeNew(this.newToShow._id).subscribe((data) => {
-      console.log(data)
-    });
+    const correctlyRemovedNew = this.newService.removeNew(this.newToShow._id);
+
+    if (correctlyRemovedNew) { this.router.navigate(['']) }
   }
 
 }

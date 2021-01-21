@@ -66,15 +66,20 @@ export class NewService {
     return true;
   }
 
-  public removeNew(idNew: string): Observable<any> {
-    return this.http.delete<any>(`http://localhost:9000/v1/${idNew}`, this.httpOptions);
+  public removeNew(idNew: string): boolean {
+    this.http.delete<any>(`http://localhost:9000/v1/${idNew}`, this.httpOptions).subscribe(
+      result => {
+        this.newsList = this.newsList.filter(newFromList => newFromList._id !== idNew);
+        this.newsOnChangeObservable();
+        this.newsCountOnChangeObservable();
+      },
+      error => {
+        console.log(error);
+        return false;
+      }
+    );
+    return true;
   }
-  // public removeNew(idNew: string): Observable<any> {
-  //   return this.http.delete<any>(`http://localhost:9000/v1/${idNew}`, this.httpOptions);
-  //   this.newsList.push(result.response);
-  //   this.newsOnChangeObservable();
-  //   this.newsCountOnChangeObservable();
-  // }
 
   public selectNewsPaper(selectedNewsPaper): void {
     this.newspaperSelected = selectedNewsPaper;
