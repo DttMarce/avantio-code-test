@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { DetailNewService } from 'src/app/services/detail-new-service/detail-new.service';
 
 import { NewService } from 'src/app/services/new/new.service';
 
@@ -15,7 +16,10 @@ export class SidebarSlideOutComponent implements OnInit {
   @Input() actionType: string;
   public body: string;
 
-  constructor(private newService: NewService,) {
+  constructor(
+    private newService: NewService,
+    private detailNewService: DetailNewService
+  ) {
     this.overlayClicked = new EventEmitter();
   }
 
@@ -29,7 +33,11 @@ export class SidebarSlideOutComponent implements OnInit {
   onSubmit(): void {
     switch (this.actionType) {
       case 'add-new':
-        const insertResult = this.newService.insertNewToNewspaper(this.newForm.form.value);
+        const insertedResult = this.newService.insertNewToNewspaper(this.newForm.form.value);
+        break;
+      case 'edit-new':
+        const editResult = this.detailNewService.editNewToNewspaper();
+        break;
     }
   }
 }

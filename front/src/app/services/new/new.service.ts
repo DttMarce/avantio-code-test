@@ -28,7 +28,6 @@ export class NewService {
     })
   };
 
-
   constructor(private http: HttpClient) {
     this.newspaperSelected = ENewspaper.ELPAIS;
     this.newsListSubject = new Subject<any>();

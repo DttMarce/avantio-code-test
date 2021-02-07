@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { Subject } from 'rxjs';
@@ -12,6 +12,12 @@ import { NewI } from '../../interfaces/new.interface';
 export class DetailNewService {
   public newSelectedData: NewI;
   public newSelectedDataSubject: Subject<any>;
+
+  private httpOptions = {
+    headers: new HttpHeaders({
+      'Content-Type':  'application/json',
+    })
+  };
 
   constructor(private http: HttpClient, private route: Router) {
     this.newSelectedDataSubject = new Subject<any>();
@@ -29,7 +35,17 @@ export class DetailNewService {
     });
   }
 
+  public getNewSelected(): NewI {
+    return this.newSelectedData;
+  }
+
   public newSelectedOnChangeObservable(): any{
     return this.newSelectedDataSubject.next(this.newSelectedData);
+  }
+
+  public editNewToNewspaper(): boolean {
+    console.log(this.newSelectedData);
+    return false;
+    // this.http.put(`http://localhost:9000/v1/editNew/${newId}/`, this.newSelectedData, this.httpOptions).pipe();
   }
 }

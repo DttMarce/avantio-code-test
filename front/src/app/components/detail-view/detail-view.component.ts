@@ -14,6 +14,7 @@ export class DetailViewComponent implements OnInit {
   public newId: string;
   public newspaper: string;
   public newToShow: NewI;
+  public showNewSidebar: boolean;
 
   constructor(
     private detailNewService: DetailNewService,
@@ -21,13 +22,14 @@ export class DetailViewComponent implements OnInit {
     private newService: NewService,
     private router: Router
   ) {
-    this.route.params.subscribe(route => {
-      this.newId = route.id;
-      this.newspaper = route.newspaper;
+    this.route.params.subscribe(routeData => {
+      this.newId = routeData.id;
+      this.newspaper = routeData.newspaper;
     });
   }
 
   ngOnInit(): void {
+    this.showNewSidebar = false;
     this.detailNewService.getNewFromApi(this.newId, this.newspaper);
 
     this.detailNewService.newSelectedDataSubject.asObservable().subscribe((data) => {
@@ -38,7 +40,16 @@ export class DetailViewComponent implements OnInit {
   deleteNew(): void {
     const correctlyRemovedNew = this.newService.removeNew(this.newToShow._id);
 
-    if (correctlyRemovedNew) { this.router.navigate(['']) }
+    if (correctlyRemovedNew) { this.router.navigate(['']); }
   }
 
+  editNew(): void {
+    this.showNewSidebar = !this.showNewSidebar;
+
+    const selectedNew = this.detailNewService.getNewSelected();
+  }
+
+  showSidebarComponent(): void {
+    this.showNewSidebar = !this.showNewSidebar;
+  }
 }

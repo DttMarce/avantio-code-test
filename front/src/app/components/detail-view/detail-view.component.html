@@ -26,9 +26,15 @@
         <app-button-circle
           class="button"
           [icon] = "'icon-pencil'"
-          (buttonClicked) = "deleteNew()"
+          (buttonClicked) = "editNew()"
         ></app-button-circle>
       </div>
     </div>
   </div>
 </div>
+
+<app-sidebar-slide-out
+  *ngIf = "showNewSidebar"
+  [actionType] = "'edit-new'"
+  (overlayClicked) = "showSidebarComponent()"
+></app-sidebar-slide-out>

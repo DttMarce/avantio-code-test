@@ -6,16 +6,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./add-new.component.scss']
 })
 export class AddNewComponent implements OnInit {
-  public showAddNewSidebar: boolean;
+  public showNewSidebar: boolean;
 
   constructor() { }
 
   ngOnInit(): void {
-    this.showAddNewSidebar = false;
+    this.showNewSidebar = false;
   }
 
   showSidebarComponent(): void {
-    this.showAddNewSidebar = !this.showAddNewSidebar;
+    this.showNewSidebar = !this.showNewSidebar;
   }
 
 }
