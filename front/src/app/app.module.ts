@@ -13,7 +13,7 @@ import { SidebarSlideOutComponent } from './components/shared/sidebar-slide-out/
 import { AddNewComponent } from './components/add-new/add-new.component';
 import { PrincipalButtonComponent } from './components/shared/buttons/principal-button/principal-button.component';
 import { SecondaryButtonComponent } from './components/shared/buttons/secondary-button/secondary-button.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -32,7 +32,8 @@ import { FormsModule } from '@angular/forms';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

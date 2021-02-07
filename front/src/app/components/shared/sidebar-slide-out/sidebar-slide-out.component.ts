@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { NewI } from 'src/app/interfaces/new.interface';
 import { DetailNewService } from 'src/app/services/detail-new-service/detail-new.service';
 
 import { NewService } from 'src/app/services/new/new.service';
@@ -11,19 +12,21 @@ import { NewService } from 'src/app/services/new/new.service';
 })
 
 export class SidebarSlideOutComponent implements OnInit {
+  @Input() actionType: string;
+  @Input() newToEdit: NewI;
   @Output() overlayClicked: EventEmitter<boolean>;
   @ViewChild('newForm') newForm: NgForm;
-  @Input() actionType: string;
   public body: string;
 
   constructor(
-    private newService: NewService,
-    private detailNewService: DetailNewService
+    private detailNewService: DetailNewService,
+    private newService: NewService
   ) {
     this.overlayClicked = new EventEmitter();
   }
 
   ngOnInit(): void {
+    console.log(this.newToEdit);
   }
 
   onOverlayClick(): void {
@@ -36,7 +39,7 @@ export class SidebarSlideOutComponent implements OnInit {
         const insertedResult = this.newService.insertNewToNewspaper(this.newForm.form.value);
         break;
       case 'edit-new':
-        const editResult = this.detailNewService.editNewToNewspaper();
+        const editResult = this.detailNewService.editNewToNewspaper(this.newForm.form.value);
         break;
     }
   }

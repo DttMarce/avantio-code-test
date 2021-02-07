@@ -43,9 +43,17 @@ export class DetailNewService {
     return this.newSelectedDataSubject.next(this.newSelectedData);
   }
 
-  public editNewToNewspaper(): boolean {
-    console.log(this.newSelectedData);
-    return false;
-    // this.http.put(`http://localhost:9000/v1/editNew/${newId}/`, this.newSelectedData, this.httpOptions).pipe();
+  public editNewToNewspaper(newToEdit: NewI): boolean {
+    this.http.put<any>(`http://localhost:9000/v1/${newToEdit._id}`, newToEdit, this.httpOptions).subscribe(
+      result => {
+        this.newSelectedData = newToEdit;
+        this.newSelectedOnChangeObservable();
+      },
+      error => {
+        console.log(error);
+        return false;
+      }
+    );
+    return true;
   }
 }
